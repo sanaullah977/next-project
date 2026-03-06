@@ -2,9 +2,11 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 installetion: 
 
+```bash
 npm i -D daisyui@latest
 
 npm i react-icons
+```
 
 
 ## Getting Started
