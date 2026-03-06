@@ -1,0 +1,62 @@
+[
+  {
+    "_id": { "$oid": "69a9d8629fa6c2e0cd595281" },
+    "banner": "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6",
+    "title": "Smart Fitness Tracker Pro",
+    "description": "Track your blood oxygen, heart rate, and sleep quality with 14-day battery life.",
+    "meta": {
+      "price": 129.99,
+      "category": "Fitness",
+      "stock": 50,
+      "rating": 4.5
+    }
+  },
+  {
+    "_id": { "$oid": "69a9d8629fa6c2e0cd595282" },
+    "banner": "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77",
+    "title": "Classic Leather Sneakers",
+    "description": "Handcrafted premium leather sneakers with a cushioned insole for maximum comfort.",
+    "meta": {
+      "price": 89.99,
+      "category": "Footwear",
+      "stock": 100,
+      "rating": 4.7
+    }
+  },
+  {
+    "_id": { "$oid": "69a9d8629fa6c2e0cd595283" },
+    "banner": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9",
+    "title": "Ultra Slim Smartphone 5G",
+    "description": "Featuring a 120Hz AMOLED display and a triple-lens camera system for professional photography.",
+    "meta": {
+      "price": 699.99,
+      "category": "Electronics",
+      "stock": 30,
+      "rating": 4.8
+    }
+  },
+  {
+    "_id": { "$oid": "69a9d8629fa6c2e0cd595284" },
+    "banner": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8",
+    "title": "Professional DSLR Camera Kit",
+    "description": "Capture every detail with a 45MP full-frame sensor and 8K video recording.",
+    "meta": {
+      "price": 1299.99,
+      "category": "Electronics",
+      "stock": 20,
+      "rating": 4.9
+    }
+  },
+  {
+    "_id": { "$oid": "69a9d8629fa6c2e0cd595285" },
+    "banner": "https://images.unsplash.com/photo-1583394838336-34758c947cbe",
+    "title": "Mechanical RGB Gaming Keyboard",
+    "description": "Ultra-responsive mechanical switches with customizable RGB lighting.",
+    "meta": {
+      "price": 149.99,
+      "category": "Gaming",
+      "stock": 75,
+      "rating": 4.6
+    }
+  }
+]
