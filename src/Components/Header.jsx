@@ -1,17 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 
 const Header = () => {
   const [user, setUser] = useState();
-
-  useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(storedUser);
-    }
-  }, []);
 
   async function handleLogout() {
     try {
