@@ -67,9 +67,9 @@ export default function LoginPage() {
     }
   };
   return (
-    <div className="flex flex-col justify-center items-center px-5 py-5 w-auto h-auto">
+    <div className="flex min-h-[60vh] flex-col items-center justify-center bg-base-100 px-5 py-8 text-base-content">
       <Title>Wellcome to Login Page</Title>
-      <form onSubmit={handleSubmit} noValidate="" className="space-y-6">
+      <form onSubmit={handleSubmit} noValidate="" className="mt-6 w-full max-w-md space-y-6">
         <div className="space-y-4">
           {/* Email */}
           <div>

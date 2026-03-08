@@ -24,8 +24,8 @@ export async function POST(req) {
     const existingUser = await collection.findOne({ email });
     if (existingUser) {
       return NextResponse.json(
-        { message: "User already exists with this email!" },
-        { status: 400 }
+        {  status: 400 , message: "User already exists with this email!" },
+       
       );
     }
 
@@ -45,14 +45,12 @@ export async function POST(req) {
     const result = await collection.insertOne(newUser);
 
     return NextResponse.json(
-    console.log({ message: "Registration successful!", id: result.insertedId })  ,
-      { status: 201 }
-    );
+    {status:201, message: "Registration successful!", id: result.insertedId })  
   } catch (error) {
     console.error("Registration error:", error);
     return NextResponse.json(
-      { message: "Internal Server Error" },
-      { status: 500 }
+      {status: 500, message: "Internal Server Error" },
+      
     );
   }
 }

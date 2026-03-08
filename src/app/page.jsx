@@ -8,7 +8,7 @@ export default function Home() {
       <div className="mx-auto max-w-6xl px-6 py-10">
         <div className="flex items-center justify-between gap-4">
           <h2 className="text-2xl font-semibold">Explore</h2>
-          <Link className="link" href="/Trending">
+          <Link className="link" href="/trending">
             See Trending →
           </Link>
         </div>

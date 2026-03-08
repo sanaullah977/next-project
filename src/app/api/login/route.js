@@ -17,15 +17,15 @@ export async function POST(req) {
     const { email, password } = await req.json();
 
     const client = await getClient();
-    const db = client.db("project");          // Same DB as register
+    const db = client.db("project"); // Same DB as register
     const collection = db.collection("users"); // Same collection
 
     // Find user by email
-    const user = await collection.findOne({ email });
+    const user = await collection.findOne({ email, password });
     if (!user) {
       return NextResponse.json(
         { message: "Invalid email or password!" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -34,7 +34,7 @@ export async function POST(req) {
     if (!isPasswordValid) {
       return NextResponse.json(
         { message: "Invalid email or password!" },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -42,13 +42,13 @@ export async function POST(req) {
     const { _id, name, image, role } = user;
     return NextResponse.json(
       { message: "Login successful!", user: { _id, name, email, image, role } },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
     console.error("Login error:", error);
     return NextResponse.json(
       { message: "Internal Server Error" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

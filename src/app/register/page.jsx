@@ -67,17 +67,13 @@ export default function Register() {
     }
   };
   return (
-    <div
-      className="flex  flex-col justify-center items-center min-h-screen 
-                bg-white dark:bg-slate-950 
-                transition-colors duration-300"
-    >
+    <div className="flex min-h-[60vh] flex-col items-center justify-center bg-base-100 px-5 py-8 text-base-content">
       <Title>WellCome To Register </Title>
 
       <form
         onSubmit={handleSubmit(onSubmit)}
         noValidate=""
-        className="space-y-6"
+        className="mt-6 w-full max-w-md space-y-6"
       >
         <div className="space-y-4">
           {/* Name */}

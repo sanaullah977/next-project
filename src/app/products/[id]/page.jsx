@@ -1,20 +1,43 @@
 import Link from "next/link";
 import { headers } from "next/headers";
+import DeleteButton from "@/Components/DeleteButton";
 
 async function getProduct(id) {
-  const h = await headers();
-  const host = h.get("x-forwarded-host") ?? h.get("host");
-  const proto = h.get("x-forwarded-proto") ?? "http";
-  const baseUrl = host ? `${proto}://${host}` : "";
+  const res = await fetch(`http://localhost:3000/api/products/${id}`, {
+    cache: "no-store",
+  });
 
-  const res = await fetch(`${baseUrl}/api/products/${id}`, { cache: "no-store" });
-  if (!res.ok) return null;
   const data = await res.json();
-  return data?.product ?? null;
+  return data.product;
 }
 
-export default async function ProductDetailsPage({ params }) {
-  const product = await getProduct(params?.id);
+async function handleDelete(id) {
+  try {
+    const res = await fetch(`/api/products?id=${id}`, {
+      method: "DELETE",
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      alert(data.message || "Delete failed");
+      return;
+    }
+
+    alert("Product deleted successfully");
+
+    // page refresh
+    window.location.reload();
+  } catch (error) {
+    console.log(error);
+    alert("Something went wrong");
+  }
+}
+export default async function ProductDetails({ params }) {
+  const { id } = await params;
+
+  const product = await getProduct(id);
+  console.log(product.fullDesc);
 
   if (!product) {
     return (
@@ -37,41 +60,44 @@ export default async function ProductDetailsPage({ params }) {
 
       <div className="rounded-lg border bg-white p-6 shadow-sm">
         <div className="flex flex-col gap-6 md:flex-row">
-          {product.image ? (
+          {product.banner ? (
             <div className="w-full md:w-1/2">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={product.image}
+                src={product.banner}
                 alt={product.title || "Product"}
                 className="h-[320px] w-full rounded-md object-cover"
               />
             </div>
           ) : null}
 
-          <div className="flex-1">
-            <h1 className="mb-2 text-3xl font-bold">{product.title || "Untitled"}</h1>
+          <div className="card flex-1">
+            <h1 className=" card-title mb-2 text-3xl font-bold">
+              {product.title || "Untitled"}
+            </h1>
 
             <div className="mb-4 flex flex-wrap gap-2">
               <span className="badge badge-outline bg-green-100 text-green-700">
-                {product.downloads ?? "—"} downloads
+               Price: ${product.meta.price ?? "—"}
               </span>
-              <span className="badge badge-outline bg-yellow-100 text-yellow-700">
-                {product.ratingAvg ?? "—"} rating
-              </span>
-              {product.category ? (
+              
+              {/* {product.category ? (
                 <span className="badge badge-outline">{product.category}</span>
-              ) : null}
+              ) : null} */}
             </div>
 
-            {product.description ? (
-              <p className="whitespace-pre-line text-gray-700">{product.description}</p>
+            {product.fullDesc ? (
+              <p className="whitespace-pre-line text-gray-700">
+                {product.fullDesc}
+              </p>
             ) : (
               <p className="text-gray-500">No description provided.</p>
             )}
+
+          <DeleteButton id={product._id}/>
           </div>
         </div>
       </div>
     </div>
   );
 }
-

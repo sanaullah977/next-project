@@ -6,61 +6,71 @@ import appStore from "../../../assets/Group1.png";
 
 const Hero = () => {
   return (
-    <div>
-      <div className="p-10 flex flex-col justify-center items-center bg-gray-100">
-        <h3 className=" font-bold text-[32px]">
-          We Build{" "}
-          <span className="bg-clip-text text-transparent bg-gradient-to-br from-[#632EE3] to-[#9F62F2]">
-            Productive
+    <section className="bg-base-100">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-center px-4 py-10 sm:px-6 lg:px-8">
+        <h3 className="text-center text-3xl font-bold sm:text-4xl">
+          We Provide{" "}
+          <span className="bg-gradient-to-br from-[#632EE3] to-[#9F62F2] bg-clip-text text-transparent">
+            New
           </span>{" "}
-          Apps
+          Eid Offer
         </h3>
 
-        <p className="text-gray-400  items-center justify-center flex flex-col">
+        <p className="mt-4 flex max-w-2xl flex-col items-center justify-center text-center text-gray-500">
           At HERO.IO , we craft innovative apps designed to make everyday life
           simpler, smarter, and more exciting.
           <span>
             Our goal is to turn your ideas into digital experiences that truly
             make an impact.
-          </span>{" "}
+          </span>
         </p>
-        <div>
-          <div className="flex m-10 justify-center">
-            <button className="flex items-center m-5 border-2 p-3 rounded-md border-gray-300">
+
+        <div className="mt-8 flex flex-col items-center gap-6">
+          <div className="flex flex-wrap justify-center gap-4">
+            <button className="flex items-center gap-2 rounded-md border border-gray-300 bg-base-100 px-4 py-3">
               <Image src={playStore} alt="Google Play" width={24} height={24} />
-              Google Play Store
+              <span>Google Play Store</span>
             </button>
-            <button className="flex items-center m-5 border-2 p-3 px-6 rounded-md border-gray-300">
-              <Image src={appStore} alt="App Store" width={24} height={24} /> App Store
+            <button className="flex items-center gap-2 rounded-md border border-gray-300 bg-base-100 px-6 py-3">
+              <Image src={appStore} alt="App Store" width={24} height={24} />
+              <span>App Store</span>
             </button>
           </div>
-          <Image src={hero} alt="Hero" priority />
+
+          <Image
+            src={hero}
+            alt="Hero"
+            priority
+            className="h-auto w-full max-w-3xl rounded-xl object-cover"
+          />
         </div>
-        <div className="p-10 flex flex-col  justify-center items-center bg-gradient-to-br from-[#632EE3] to-[#9F62F2] w-full">
-          <h3 className="p-10 items-center text-white text-[32px] font-bold">
+      </div>
+
+      <div className="w-full bg-gradient-to-br from-[#632EE3] to-[#9F62F2]">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-center px-4 py-10 text-white sm:px-6 lg:px-8">
+          <h3 className="mb-6 text-center text-2xl font-bold sm:text-3xl">
             Trusted by Millions, Built for You
           </h3>
-          <div className="flex md:flex-row flex-col gap-10 text-white">
-            <div className="flex flex-col justify-center items-center">
-              <p className="text-gray-300 p-1">Total Downloads</p>
-              <p className="text-[44px] font-bold">29.6M</p>
-              <p className="text-gray-300 p-1">21% more than last month</p>
+          <div className="flex w-full flex-col justify-center gap-8 text-center md:flex-row md:gap-12">
+            <div className="flex flex-col items-center justify-center">
+              <p className="p-1 text-gray-200">Total Downloads</p>
+              <p className="text-3xl font-bold sm:text-4xl">29.6M</p>
+              <p className="p-1 text-gray-200">21% more than last month</p>
             </div>
-            <div className="flex flex-col justify-center items-center">
-              <p className="text-gray-300 p-1">Total Reviews</p>
-              <p className="text-[44px] font-bold">906K</p>
-              <p className="text-gray-300 p-1">46% more than last month</p>
+            <div className="flex flex-col items-center justify-center">
+              <p className="p-1 text-gray-200">Total Reviews</p>
+              <p className="text-3xl font-bold sm:text-4xl">906K</p>
+              <p className="p-1 text-gray-200">46% more than last month</p>
             </div>
-            <div className="flex flex-col justify-center items-center">
-              <p className="text-gray-300 p-1">Active Apps </p>
-              <p className="text-[44px] font-bold">132+</p>
-              <p className="text-gray-300 p-1">31 more Will Launch</p>
+            <div className="flex flex-col items-center justify-center">
+              <p className="p-1 text-gray-200">Active Apps</p>
+              <p className="text-3xl font-bold sm:text-4xl">132+</p>
+              <p className="p-1 text-gray-200">31 more Will Launch</p>
             </div>
           </div>
         </div>
-        {/* <Trending></Trending> */}
       </div>
-    </div>
+    </section>
   );
 };
 

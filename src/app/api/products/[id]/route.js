@@ -2,9 +2,10 @@ import { NextResponse } from "next/server";
 import { ObjectId } from "mongodb";
 import { getMongoClient } from "@/lib/mongoConnect";
 
-export async function GET(_request, { params }) {
+export async function GET(_request, context) {
   try {
-    const { id } = params || {};
+    const { id } = await context.params;
+
     if (!id || !ObjectId.isValid(id)) {
       return NextResponse.json({ message: "Invalid product id" }, { status: 400 });
     }
